@@ -23,7 +23,7 @@ hook.Add("HUDPaint", "Noah:DarkRP:HUD", function()
     local job = ply:getDarkRPVar("job") or "Sans emploi"
     local numProps = ply:GetCount("props")
 
-    if NHudDarkRP.Config.Notify then
+    if NHudDarkRP.Config.Ammo then
 
     if not LocalPlayer():Alive() then return end
     if not IsValid(LocalPlayer():GetActiveWeapon()) then return end

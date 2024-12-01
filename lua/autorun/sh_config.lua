@@ -5,7 +5,7 @@ NHudDarkRP.Config = {}
 NHudDarkRP.Config.Hunger = true 
 
 // Affiche le système de Notification 
-NHudDarkRP.Config.Notify = true 
+NHudDarkRP.Config.Ammo = true 
 
 // Couleur générale de l'hud | https://marketplace.visualstudio.com/items?itemName=venner.vscode-glua-enhanced
 NHudDarkRP.Config.Colors = {
