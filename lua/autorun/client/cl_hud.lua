@@ -6,6 +6,17 @@ surface.CreateFont("Noah:Hud:1", {
     size = RY(20),
 })
 
+surface.CreateFont("Noah:Text:1", {
+    font = "Montserrat-Bold",
+    size = RY(20),
+})
+
+surface.CreateFont("Noah:Job:1", {
+    font = "Montserrat-Bold",
+    size = RY(20),
+})
+
+
 local lerpHealth = 0
 local lerpArmor = 0
 local lerpHunger = 0
