@@ -16,7 +16,6 @@ surface.CreateFont("Noah:Job:1", {
     size = RY(20),
 })
 
-
 local lerpHealth = 0
 local lerpArmor = 0
 local lerpHunger = 0
@@ -35,13 +34,14 @@ hook.Add("HUDPaint", "Noah:DarkRP:HUD", function()
     local numProps = ply:GetCount("props")
 
     if NHudDarkRP.Config.Ammo then
+        if not LocalPlayer():Alive() then return end
+        if not IsValid(LocalPlayer():GetActiveWeapon()) then return end
 
-    if not LocalPlayer():Alive() then return end
-    if not IsValid(LocalPlayer():GetActiveWeapon()) then return end
-
-    draw.RoundedBox(20, ScrW() - 225, 1025, 210, 40, NHudDarkRP.Config.Colors["Background"])
-    draw.RoundedBox(20, ScrW() - 220, 1030, 200, 30, NHudDarkRP.Config.Colors["Bbackground"])
-    draw.SimpleText(LocalPlayer():GetActiveWeapon():Clip1() .. "/" .. LocalPlayer():GetAmmoCount(LocalPlayer():GetActiveWeapon():GetPrimaryAmmoType()), "Noah:Hud:1", ScrW() / 1.066, ScrH() - 36, NHudDarkRP.Config.Colors["AmmoText"], TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER)
+        draw.RoundedBox(20, RX(1695), RY(1025), RX(210), RY(40), NHudDarkRP.Config.Colors["Background"])
+        draw.RoundedBox(20, RX(1700), RY(1030), RX(200), RY(30), NHudDarkRP.Config.Colors["Bbackground"])
+        
+        draw.SimpleText(LocalPlayer():GetActiveWeapon():Clip1() .. "/" .. LocalPlayer():GetAmmoCount(LocalPlayer():GetActiveWeapon():GetPrimaryAmmoType()), 
+        "Noah:Hud:1", RX(1805), RY(1045), NHudDarkRP.Config.Colors["AmmoText"], TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER)
     end
 
     lerpHealth = Lerp(ft, lerpHealth, health)
@@ -65,10 +65,10 @@ hook.Add("HUDPaint", "Noah:DarkRP:HUD", function()
     draw.SimpleText(math.Round(lerpArmor), "Noah:Text:1", RX(330), RY(1030), color_white, TEXT_ALIGN_LEFT, TEXT_ALIGN_CENTER)
 
     if NHudDarkRP.Config.Hunger then 
-    surface.SetDrawColor(color_white)
-    surface.SetMaterial(NHudDarkRP.Config.Materials["hunger"])
-    surface.DrawTexturedRect(RX(373), RY(1022), RX(16), RY(16))
-    draw.SimpleText(math.Round(lerpHunger), "Noah:Text:1", RX(395), RY(1030), color_white, TEXT_ALIGN_LEFT, TEXT_ALIGN_CENTER)
+        surface.SetDrawColor(color_white)
+        surface.SetMaterial(NHudDarkRP.Config.Materials["hunger"])
+        surface.DrawTexturedRect(RX(373), RY(1022), RX(16), RY(16))
+        draw.SimpleText(math.Round(lerpHunger), "Noah:Text:1", RX(395), RY(1030), color_white, TEXT_ALIGN_LEFT, TEXT_ALIGN_CENTER)
     end 
 
     surface.SetDrawColor(color_white)
@@ -81,7 +81,6 @@ local Avatar = vgui.Create("AvatarImage", Panel)
 Avatar:SetSize(RX(64), RY(64))
 Avatar:SetPos(RX(25), RY(997))
 Avatar:SetPlayer(LocalPlayer(), 64)
-
 
 local HideElement = {
     ["CHudHealth"] = true,

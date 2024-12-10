@@ -1,7 +1,23 @@
 NHudDarkRP = NHudDarkRP or {}
 NHudDarkRP.Config = {}
 
-// Affiche le système de fin
+// Armes pour lesquelles l'HUD munition n'est affiché
+NHudDarkRP.Config.NoAmmoHUD = {
+    ["weapon_physgun"] = true, 
+    ["gmod_camera"] = true, 
+    ["weapon_fists"] = true, 
+    ["gmod_tool"] = true, 
+    ["stunstick"] = true, 
+    ["lockpick"] = true, 
+}
+
+// Retire l'hud
+NHudDarkRP.Config.KeyRemoveHUD = "F8"
+
+// Active/désactive l'hud avec une touche d'une clavier ? 
+NHudDarkRP.Config.RemoveHUD = true
+
+// Affiche le système de faim
 NHudDarkRP.Config.Hunger = true 
 
 // Affiche le système de Notification 
